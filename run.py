@@ -76,5 +76,5 @@ def processar_gabarito_inteligente(img_path):
 
 # Testar
 import numpy as np
-print(processar_gabarito_inteligente('duplicadovirada.png'))
-print(processar_gabarito_inteligente('duplicado.png'))
+print(processar_gabarito_inteligente('assets/duplicadovirada.png'))
+print(processar_gabarito_inteligente('assets/duplicado.png'))
