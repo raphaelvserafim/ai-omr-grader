@@ -106,7 +106,7 @@ curl -X POST http://127.0.0.1:8000/v1/decode-omr \
 O modelo final atingiu alta confiança (acima de 85%) na detecção das bolinhas, processando cada imagem em aproximadamente **25ms** no MacBook M4, permitindo uma correção em tempo real.
 
  
-![Resultados do Treinamento](runs/detect/train2/results.png)
+![Resultados do Treinamento](training/runs/detect/train/results.png)
 
 ### Análise dos Gráficos:
 *   **Precisão (mAP50):** O modelo atingiu o índice de 1.0 (100%), demonstrando total assertividade na identificação das bolinhas marcadas e vazias.
