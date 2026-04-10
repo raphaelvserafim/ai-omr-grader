@@ -25,14 +25,18 @@ Foram anotadas 160 bolinhas em 4 imagens de gabaritos reais para garantir que a 
 O projeto foi organizado seguindo o padrão exigido pelo YOLOv8:
 ```text
 treino_gabarito/
-├── dataset/
-│   ├── images/
-│   │   └── train/ (Fotos dos gabaritos)
-│   └── labels/
-│       └── train/ (Arquivos .txt das anotações)
-├── data.yaml        (Configuração das classes)
-├── treinar.py       (Script de treinamento)
-└── run.py        (Script de leitura e lógica)
+├── main.py              # Ponto de entrada da API (FastAPI)
+├── core/                # Camada de lógica e inteligência
+│   ├── omr_service.py   # Orquestração: YOLO + Lógica de ordenação de questões
+│   ├── schemas.py       # Definições de entrada e saída (Pydantic)
+│   └── utils.py         # Auxiliares: Conversão de Base64 e detecção de QR Code
+├── models/              # Modelos de produção
+│   └── best.pt          # Peso final do modelo treinado (YOLOv8)
+└── training/            # Ambiente isolado para treinamento (Laboratório)
+    ├── dataset/         # Dados de treino (Images e Labels)
+    ├── data.yaml        # Configuração do YOLO para o dataset
+    ├── treinar.py       # Script para iniciar novo treinamento
+    └── yolov8n.pt       # Modelo base da Ultralytics
 ```
 
 ### 3. Treinamento
@@ -76,6 +80,22 @@ O script de teste gera uma imagem de conferência (`conferencia_final.png`) e im
   "4": "D"
 }
 ```
+
+## API
+```
+pm2 start main.py --name "omr-api" --interpreter python3
+```
+
+```sh
+curl -X POST http://127.0.0.1:8000/v1/decode-omr \
+     -H "Content-Type: application/json" \
+     -d '{"image_base64": ""}'
+```
+```json
+{"status":"sucesso","gabarito":{"1":"A","2":"B","3":null,"4":"B","5":"C","6":"B","7":"A","8":"D","9":"B","10":"C"},"erro":null}
+```
+
+ 
 
 ---
 
