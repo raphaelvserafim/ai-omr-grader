@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mockup Gabarito</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eee;
+      padding: 40px;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card {
+      display: inline-block;
+      border: 2px solid #000;
+      position: relative;
+      width: 700px;
+      background: #fff;
+      margin-bottom: 40px;
+    }
+
+    .fid {
+      position: absolute;
+      background: #000;
+      z-index: 10;
+      width: 20px;
+      height: 20px;
+    }
+
+    .fid.tl {
+      top: -1px;
+      left: -1px;
+    }
+
+    .fid.tr {
+      top: -1px;
+      right: -1px;
+    }
+
+    .fid.bl {
+      bottom: -1px;
+      left: -1px;
+    }
+
+    .fid.br {
+      bottom: -1px;
+      right: -1px;
+    }
+
+    .fid.tm {
+      top: -1px;
+      left: 230px;
+    }
+
+    .fid.bm {
+      bottom: -1px;
+      left: 230px;
+    }
+
+    table.card-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    /* SIDEBAR - versão rotacionada */
+    .sidebar {
+      width: 230px;
+      border-right: 2px solid #000;
+      vertical-align: top;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sidebar-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: absolute;
+      width: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      padding: 8px;
+    }
+
+    .sidebar-inner .qr-block {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .sidebar-inner .qr-block img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .sidebar-inner .qr-block .codigo {
+      font-size: 8px;
+      font-weight: bold;
+    }
+
+    .sidebar-inner .fields {
+      width: 100%;
+    }
+
+    .sidebar-inner .field-label {
+      font-size: 6px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #333;
+    }
+
+    .sidebar-inner .field-value {
+      font-size: 9px;
+      font-weight: bold;
+      border: 1px solid #000;
+      padding: 2px 4px;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-inner .sig-box {
+      width: 100%;
+      height: 55px;
+      border: 1.5px solid #000;
+      margin-top: 10px;
+      background: #f9f9f9;
+    }
+
+    .sidebar-inner .sig-label {
+      font-size: 6px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* ANSWER AREA */
+    .answer-area {
+      vertical-align: middle;
+      padding: 10px;
+    }
+
+    .grid-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .grid-table .q-header td {
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      border-bottom: 2px solid #000;
+      padding: 6px 0;
+    }
+
+    .grid-table .q-header td span {
+      display: inline-block;
+      transform: rotate(-90deg);
+    }
+
+    .grid-table .opt-row td {
+      padding: 6px 0;
+      text-align: center;
+    }
+
+    .grid-table .opt-row-alt {
+      background: #f0f0f0;
+    }
+
+    .opt-label {
+      font-size: 10px;
+      font-weight: 800;
+      width: 16px;
+      text-align: center;
+    }
+
+    .opt-label span {
+      display: inline-block;
+      transform: rotate(-90deg);
+    }
+
+    .bubble {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #000;
+      border-radius: 50%;
+      display: inline-block;
+      font-size: 7px;
+      line-height: 24px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.25);
+      font-weight: bold;
+    }
+
+    .bubble span {
+      display: inline-block;
+      transform: rotate(-90deg);
+    }
+
+    .q-footer td {
+      border-top: 2px solid #000;
+      height: 2px;
+    }
+
+    .q-bottom td {
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      border-top: 2px solid #000;
+      padding: 6px 0;
+    }
+
+    .q-bottom td span {
+      display: inline-block;
+      transform: rotate(-90deg);
+    }
+
+    .inst {
+      font-size: 7px;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="fid tl"></div>
+    <div class="fid tr"></div>
+    <div class="fid bl"></div>
+    <div class="fid br"></div>
+    <div class="fid tm"></div>
+    <div class="fid bm"></div>
+
+    <table class="card-table">
+      <tr>
+        <td class="sidebar">
+          <div class="sidebar-inner">
+            <div class="qr-block">
+              <!-- placeholder QR -->
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <rect width="80" height="80" fill="#000" />
+                <rect x="5" y="5" width="25" height="25" fill="#fff" />
+                <rect x="10" y="10" width="15" height="15" fill="#000" />
+                <rect x="50" y="5" width="25" height="25" fill="#fff" />
+                <rect x="55" y="10" width="15" height="15" fill="#000" />
+                <rect x="5" y="50" width="25" height="25" fill="#fff" />
+                <rect x="10" y="55" width="15" height="15" fill="#000" />
+                <rect x="35" y="35" width="10" height="10" fill="#fff" />
+              </svg>
+              <div class="codigo">AV001-120</div>
+            </div>
+            <div class="fields">
+              <div class="field-label">Discente</div>
+              <div class="field-value">Aluno 0</div>
+              <div class="field-label">CPF</div>
+              <div class="field-value">123.456.789-00</div>
+              <div class="sig-box"></div>
+              <div class="sig-label">Assinatura do Discente</div>
+            </div>
+          </div>
+        </td>
+
+        <td class="answer-area">
+          <table class="grid-table">
+            <tr class="q-header">
+              <td></td>
+              <td><span>1</span></td>
+              <td><span>2</span></td>
+              <td><span>3</span></td>
+              <td><span>4</span></td>
+              <td><span>5</span></td>
+              <td><span>6</span></td>
+              <td><span>7</span></td>
+              <td><span>8</span></td>
+              <td><span>9</span></td>
+              <td><span>10</span></td>
+              <td></td>
+            </tr>
+            <tr class="opt-row">
+              <td class="opt-label"><span>D</span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td><span class="bubble"><span>D</span></span></td>
+              <td class="opt-label"><span>D</span></td>
+            </tr>
+            <tr class="opt-row opt-row-alt">
+              <td class="opt-label"><span>C</span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td><span class="bubble"><span>C</span></span></td>
+              <td class="opt-label"><span>C</span></td>
+            </tr>
+            <tr class="opt-row">
+              <td class="opt-label"><span>B</span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td><span class="bubble"><span>B</span></span></td>
+              <td class="opt-label"><span>B</span></td>
+            </tr>
+            <tr class="opt-row opt-row-alt">
+              <td class="opt-label"><span>A</span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td><span class="bubble"><span>A</span></span></td>
+              <td class="opt-label"><span>A</span></td>
+            </tr>
+            <tr class="q-bottom">
+              <td></td>
+              <td><span>1</span></td>
+              <td><span>2</span></td>
+              <td><span>3</span></td>
+              <td><span>4</span></td>
+              <td><span>5</span></td>
+              <td><span>6</span></td>
+              <td><span>7</span></td>
+              <td><span>8</span></td>
+              <td><span>9</span></td>
+              <td><span>10</span></td>
+              <td></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

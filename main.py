@@ -5,11 +5,11 @@ from core.omr_service import OMRService
 app = FastAPI(title="AI OMR Grader API")
 
 # Instancia o serviço globalmente (Singleton)
-omr_service = OMRService(model_path='models/best.pt')
+omr_service = OMRService(model_path='models/preta.azul.best.pt')
 
 @app.get("/")
 def health_check():
-    return {"status": "online"}
+    return {"status": "online e funcionando!", "modelo": "preta.azul.best.pt", "datetime": datetime.now().isoformat()}
 
 @app.post("/v1/decode-omr", response_model=OMRResponse)
 async def decode_omr(request: OMRRequest):

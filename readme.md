@@ -33,10 +33,13 @@ treino_gabarito/
 ├── models/              # Modelos de produção
 │   └── best.pt          # Peso final do modelo treinado (YOLOv8)
 └── training/            # Ambiente isolado para treinamento (Laboratório)
-    ├── dataset/         # Dados de treino (Images e Labels)
-    ├── data.yaml        # Configuração do YOLO para o dataset
-    ├── treinar.py       # Script para iniciar novo treinamento
-    └── yolov8n.pt       # Modelo base da Ultralytics
+│    ├── dataset/        # Dados de treino (Images e Labels)
+│    ├── data.yaml       # Configuração do YOLO para o dataset
+│    ├── run.py          # Script para iniciar novo treinamento
+│    └── yolov8n.pt      # Modelo base da Ultralytics
+├── test                 # Pasta para testes
+     ├── images/         # Pasta das imagens pra test
+     └── run.py          # Rodar o teste
 ```
 
 ### 3. Treinamento
