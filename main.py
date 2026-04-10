@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from core.schemas import OMRRequest, OMRResponse
 from core.omr_service import OMRService
+import time
+from datetime import datetime
 
 app = FastAPI(title="AI OMR Grader API")
 
