@@ -1,1 +1,5 @@
 assets/*
+core/__pycache__/
+core/pycache/
+core/venv/
+data/*
